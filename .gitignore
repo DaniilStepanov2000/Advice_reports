@@ -1,0 +1,4 @@
+.pytest_cache
+.idea
+celerybeat-schedule.db
+.db.sqlite3
