@@ -1,0 +1,9 @@
+import os
+from celery import Celery
+from django.conf import settings
+
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "schedule_reports_email.settings")
+app = Celery('schedule_reports', broker=settings.BROKER_URL)
+
+app.config_from_object('django.conf:settings', namespace='CELERY')
+app.autodiscover_tasks()

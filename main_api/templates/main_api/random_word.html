@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+    Right now we can send one message per day to entered email.
+    <br>
+    <label for="schedule_time">
+        Please choose the comfortable time for you:
+    </label>
+    <input type="time" id="schedule_time" name="schedule_time" placeholder="yyyy-mm-dd">
+    <br>
+    <input type="submit">
+</form>
+<a href="logout">Log out</a>
+<br>
+<br>
+<br>
+{% if reports %}
+<table style="border: 1px solid black">
+    {% for report in reports %}
+    <tr>
+        <td>
+            {{report.time}}
+        </td>
+        <td>
+            {{report.owner.username}}
+        </td>
+        <td>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <input type="hidden" value={{report.id}} name="delete_report_id">
+                <input type="submit" value="Delete">
+            </form>
+        </td>
+    </tr>
+    {% endfor%}
+</table>
+{% endif %}
+</body>
+</html>

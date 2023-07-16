@@ -1,0 +1,14 @@
+services:
+  main_api:
+    image: schedule_email
+    ports:
+      - 8000:8000
+  message_broker:
+    image: rabbitmq
+    hostname: rabbit
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
