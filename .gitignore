@@ -1,4 +1,4 @@
-.pytest_cache
-.idea
+pytest_cache
+idea
 celerybeat-schedule.db
-.db.sqlite3
+db.sqlite3
