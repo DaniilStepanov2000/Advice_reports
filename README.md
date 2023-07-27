@@ -34,3 +34,8 @@ docker exec -it container_id /bin/bash
 ```
 celery -A schedule_reports worker -B
 ```
+### Run unit-test
+To run tests all unit-tests go to the root folder of project and run the following command:
+```
+pytest
+```
