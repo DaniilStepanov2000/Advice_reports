@@ -2,7 +2,7 @@
 ## Project
 This system developed for people hwo want to send reminders with some "wise advice" to an email. 
 ## Technical details
-Currently the system can send emails by any time using scheduler. Thanks to the Celery especially for the celery beat and message broker RabbitMQ, system can perform asynchronous tasks because we don't want to block main proccess.
+Currently, the system can send emails by any time using scheduler. Thanks to the Celery especially for the celery beat and message broker RabbitMQ, system can perform asynchronous tasks because we don't want to block main proccess.
 ### Technical stack:
 1. Python 3.11.
 2. Django.
