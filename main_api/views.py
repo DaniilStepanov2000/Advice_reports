@@ -27,7 +27,6 @@ def page500(request, exception=None):
 class LogOutView(View):
     def get(self, request):
         LoginManager(request).logout()
-
         return redirect('/login/')
 
 
@@ -41,7 +40,6 @@ class ReportView(View):
             ScheduleManager(request).delete_schedule()
         elif request.POST['schedule_time']:
             ScheduleManager(request).create_schedule()
-
         return redirect('/')
 
 
@@ -51,7 +49,6 @@ class SignUpView(View):
 
     def post(self, request):
         SignUpManager(request).create_user()
-
         return redirect("/login/")
 
 
@@ -65,5 +62,4 @@ class LoginView(View):
         if result is True:
             return redirect('/')
         msg = 'Please sign up!'
-
         return redirect(f'/login/?message={msg}')
