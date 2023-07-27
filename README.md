@@ -18,5 +18,19 @@ Currently, the system can send emails by any time using scheduler. Thanks to the
 cd advice_reports
 ```
 3. Install and set-up Docker.
-4. Run docker
-   
+4. Run the following command to build app image:
+```
+docker build . -f Docker/. -t schedule_email
+```
+5. Run the following command to start containers:
+```
+docker-compose -f Docker/docker-compose.yml up
+```
+6. Run the following command to connect to the app container
+```
+docker exec -it container_id /bin/bash
+```
+7. Run the following command to start celery beat.
+```
+celery -A schedule_reports worker -B
+```
