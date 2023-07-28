@@ -130,3 +130,6 @@ AUTH_EXC_URLS = (
 )
 BROKER_URL = 'amqp://guest:guest@rabbit:5672/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_SENDER = 'mrdanilusha@gmail.com'
+EMAIL_KEY = 'vikbagfpmmrmbwsv'
