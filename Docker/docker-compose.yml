@@ -1,14 +1,35 @@
+version: '3.8'
+
 services:
+  db:
+    image: mysql
+    ports:
+      - '3306:3306'
+    environment:
+      MYSQL_DATABASE: 'test_db'
+      MYSQL_ROOT_PASSWORD: 'qwerty'
+      MYSQL_USER: 'test'
+      MYSQL_PASSWORD: 'test'
   main_api:
     image: schedule_email
     ports:
-      - 8000:8000
+      - '8000:8000'
+    command: >
+      sh -c "python3 manage.py migrate &&
+             python3 manage.py runserver 0.0.0.0:8000"
+    restart: 'on-failure'
   message_broker:
     image: rabbitmq
     hostname: rabbit
     ports:
-      - 5672:5672
-      - 15672:15672
+      - '5672:5672'
+      - '15672:15672'
     environment:
       RABBITMQ_DEFAULT_USER: guest
       RABBITMQ_DEFAULT_PASS: guest
+  celery:
+    image: schedule_email
+    command: celery -A schedule_reports_email worker -B
+    depends_on:
+      - message_broker
+      - db
