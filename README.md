@@ -31,7 +31,7 @@ docker-compose -f Docker/docker-compose.yml up
 0.0.0.0:8000
 ```
 ### Run unit-test
-To run tests all unit-tests go to the root folder of project and run the following command:
+To run all unit-tests go to the root folder of the project and run the following command:
 ```
 pytest
 ```
