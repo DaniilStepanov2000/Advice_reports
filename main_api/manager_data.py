@@ -19,7 +19,7 @@ class DataManager:
         if advice:
             return advice
 
-        return 'Something wrong! Pls try ti create report again.'
+        return 'Something wrong! Pls try to create report again.'
 
     def make_request(self) -> Dict[str, str]:
         """
