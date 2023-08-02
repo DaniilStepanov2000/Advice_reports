@@ -12,27 +12,23 @@ Currently, the system can send emails by any time using scheduler. Thanks to the
 6. SQLite.
 7. PyTest.
 ### Deploy system:
-1. Clone the following [repository](https://github.com/DaniilStepanov2000/advice_reports) to your machine.
+1. Clone the following [repository](https://github.com/DaniilStepanov2000/Advice_reports) to your machine.
 2. Make the following command to go to the root project folder:
 ```
 cd advice_reports
 ```
-3. Install and set-up Docker.
-4. Run the following command to build app image:
+3. Install and setup Docker.
+4. Run the following command to build the app image:
 ```
 docker build . -f Docker/. -t schedule_email
 ```
-5. Run the following command to start containers:
+5. Run the following command to start the containers:
 ```
 docker-compose -f Docker/docker-compose.yml up
 ```
-6. Run the following command to connect to the app container
+6. Enter the following address in the your browser:
 ```
-docker exec -it container_id /bin/bash
-```
-7. Run the following command to start celery beat.
-```
-celery -A schedule_reports worker -B
+0.0.0.0:8000
 ```
 ### Run unit-test
 To run tests all unit-tests go to the root folder of project and run the following command:
