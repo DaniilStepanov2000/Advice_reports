@@ -18,7 +18,12 @@ Currently, the system can send emails by any time using the scheduler. Thanks to
 cd advice_reports
 ```
 3. Install and setup Docker.
-4. Run the following command to build the app image:
+4. Enter the following variables to the settings.py:
+```
+EMAIL_SENDER = 'some@gmail.com' # sender's gmail
+EMAIL_KEY = 'some_key' # key from gmail
+```
+5. Run the following command to build the app image:
 ```
 docker build . -f Docker/. -t schedule_email
 ```
